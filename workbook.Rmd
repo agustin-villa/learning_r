@@ -1,0 +1,191 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+--------------------------------------------------------------------------------------------------------------------------------
+
+Create a vector named years that contains all year numbers from 2017 to the current year by listing the individual years.
+
+On the next line, use print() to output years.
+```{r}
+# create vector called years:
+years = c(2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024)
+print(years)
+```
+Create another vector named years2 that contains all year numbers from 2017 to the current year by using one of the shortcuts above for consecutive numbers.
+
+On the next line, use print() to output years2
+```{r}
+# create vector called years2:
+years2 = c(2017:2024)
+print(years2)
+```
+-----------------------------------------------------------------------------------------------------------------------------
+The vector top_movies_2019 contains the top ten grossing movies from 2019, in order of their rank so that the top movie is at the beginning of the vector. Create a variable top_six_movies that stores the 6th highest-grossing movie from the vector. On the next line, print top_six_movies.
+
+Create a variable top_three_movies that stores the top 3 movies from top_movies_2019, accessing the elements with an index vector.
+
+On the next line, print top_three_movies.
+```{r}
+top_movies_2019 = c(
+  "Avengers: Endgame",
+  "The Lion King",
+  "Toy Story 4",
+  "Frozen 2",
+  "Captain Marvel",
+  "Star Wars: Episode IX - The Rise of Skywalker",
+  "Spider-Man: Far from Home",
+  "Aladdin",
+  "Joker",
+  "It Chapter Two"
+)
+
+# create variable top_six_movies:
+top_six_movies = top_movies_2019[6]
+print(top_six_movies)
+
+# create vector called top_three_movies:
+top_three_movies <- top_movies_2019[c(1:3)]
+print(top_three_movies)
+```
+-------------------------------------------------------------------------------------------------------------------------
+
+Correct the typo in the existing vector vegetables so that the third element says "spinach" instead.
+
+Then, print vegetables on the next line.
+```{r}
+vegetables <- c("celery", "squash", "spinch", "kale", "radish", "carrot", "onion")
+# correct to spinach here:
+vegetables[vegetables == 'spinch'] <- "spinach"
+print(vegetables)
+
+```
+See the vector scores. You’re a generous teacher and want to round some really low scores up. Modify the vector so that every score below 60 is set to 60.
+
+Print scores after.
+```{r}
+scores <- c(44, 65, 77, 49, 56, 75, 59, 90, 72)
+#modify scores below:
+scores[scores < 60] <- 60
+print(scores)
+```
+-------------------------------------------------------------------------------------------------------------------------
+Create a matrix called one_hundred_greetings that has 10 rows and 10 columns full of "hi"s
+```{r}
+# create one_hundred_greetings matrix below:
+one_hundred_greetings <- matrix("hi", nrow = 10, ncol = 10)
+print(one_hundred_greetings)
+```
+Create a number matrix called different_neighbors in R based on what’s shown below: A 3 row by 5 column matrix where the first column is [0 1], second column is [1 0], and it alternates in this pattern
+You can print different_neighbors to make sure it looks right.
+```{r}
+# create different_neighbors matrix below:
+different_neighbors <- matrix(c(1,0),nrow=3,ncol=5)
+print(different_neighbors)
+
+```
+-------------------------------------------------------------------------------------------------------------------------
+
+See the matrix defined as twenty_eight_matrix. Get the element in the 2nd row, 4th column and store it in a variable called middle_element.
+
+Then print middle_element.
+
+Get the 6th column of the matrix and store it in a variable called sixth_column.
+
+Then print sixth_column.
+```{r}
+twenty_eight_matrix <- matrix(c(1:28), nrow = 4, ncol = 7)
+print(twenty_eight_matrix)
+
+# get the element in second row, 4th column
+middle_element <- twenty_eight_matrix[2,4]
+print(middle_element)
+
+sixth_column <- twenty_eight_matrix[,6]
+print(sixth_column)
+```
+-------------------------------------------------------------------------------------------------------------------------
+
+Create a list called fruit_basket that contains, in this order:
+
+  Your favorite fruit in a string
+  The number of kilograms of the fruit you want to buy e.g. 3.5
+  A vector of at least two friends’ names to gift the fruits to
+
+Hmm. Seems like you have just enough cash to get 10 kg. Modify the second element of the list, where you’ve stored how many kg’s you’ll buy, to 10.
+Then print fruit_basket.
+```{r}
+# create list fruit_basket below:
+fruit_basket <- list("melon", 5.0, c("Andrew","Mike"))
+fruit_basket[[2]] <- 10.0
+
+print(fruit_basket)
+```
+-------------------------------------------------------------------------------------------------------------------------
+See the test_scores list created.
+
+Create a variable nick_scores that stores Nick’s scores for all the exams. Print nick_scores.
+
+Create another variable nick_exam2 that stores Nick’s score for exam 2. Print nick_exam2.
+```{r}
+test_scores <- list(
+  Penny = list(exam1 = 84, exam2 = 79, exam3 = 85),
+  Nick = list(exam1= 77, exam2 = 81, exam3 = 83),
+  Kiara = list(exam1 = 92, exam2 = 89, exam3 = 87)
+)
+# create variable nick_scores
+nick_scores <- test_scores$Nick
+nick_exam2 <- test_scores$Nick$exam2
+print(nick_exam2)
+
+```
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
