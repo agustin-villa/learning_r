@@ -149,19 +149,104 @@ print(nick_exam2)
 ```
 -------------------------------------------------------------------------------------------------------------------------
 
+First, there should be a check on whether age is 21+ or 18+.
+
+  If age is 21 or above, set access_event to TRUE and print "I got in for the night!". If 21+, you can also check whether you have the right codeword to access the secret music show at 11. If your possible_codeword matches the real_codeword using the == comparison operator, set access_music_show to TRUE and print "I need to get a good spot!". Hint: this codeword check should be a nested conditional.
+
+  But if age is 18+ but not 21+, you have to check whether the current_hour is earlier than 11. If it is, you can set access_event to TRUE and you should print "I can stay until 11!“ Hint: you can either nest the first check into the second, or use an & (AND) operator to combine them.
+
+  If age is not 18+ or 21+, both access_event and access_music_show should stay FALSE and you should print "I guess I'll go somewhere else."
+```{r}
+# defining the variables
+access_event <- FALSE
+access_music_show <- FALSE
+age <- 22
+current_hour <- 9
+possible_codeword <- "redrobbin"
+real_codeword <- "bluejay"
+# conditional code goes here:
+if(age >= 21){
+    access_event <- TRUE 
+    print("I got in for the night!")
+    if(possible_codeword == real_codeword){
+      access_music_show <- TRUE
+      print("I need to get a good spot!")
+  }
+}else if(age >= 18 & age < 21 & current_hour < 11){
+  access_event <- TRUE
+  print("I can stay until 11!")
+}else{
+  access_event <- FALSE
+  access_music_show <- FALSE
+  print("I guess I'll go somewhere else.")
+}
+
+```
+
+-------------------------------------------------------------------------------------------------------------------------
 
 
+---
+Edit the code block to print the matrix elements column by column. First, run the code as is to see that it prints the elements of this matrix row-by-row. Notice how the row and col variables are increasing. Hint: you should make the outer loop iterate through the column indices, and the inner loop iterate through the row indices.
+```{r}
+# define the matrix
+my_matrix <- matrix(c(12, 11, 24, 8, 2, 3, 9, 4, 12, 13, 25, 7, 23, 10, 19), nrow = 3, ncol = 5)
+# modify the for statements:
+for (col in 1:ncol(my_matrix)) {
+    for (row in 1:nrow(my_matrix)) {
+      print(paste("Row", row, "Column", col, ":", my_matrix[row, col]))
+    }
+}
+```
 
+-------------------------------------------------------------------------------------------------------------------------
+The coin-flipping example is translated into code below. Read through the code thoroughly. In the while loop, we are printing the result at every flip so we can visualize each flip and see how many it takes until we reach our heads goal. Run the code several times to simulate different trials of coin-flipping.
+```{r message=FALSE}
+number_of_heads <- 0
+heads_goal <- 2
+coin <- c("heads", "tails")
+while (number_of_heads < heads_goal) {
+  # flip the coin (random)
+  result <- sample(coin, 1)
+  print(result)
+  if (result == "heads") {
+    number_of_heads <- number_of_heads + 1
+  }
+}
+```
+-------------------------------------------------------------------------------------------------------------------------
+Write a for loop to multiply all the numbers of a vector numbers together and keep the product in a variable called product, which we’ve set to 1 at the beginning. The product, which will be printed, should equal 81 at the end.
+```{r}
+numbers <- c(1.5, 3, 2, 4, 3, 0.25, 3)
+product <- 1
+# write loop code here:
+for(x in numbers){
+  product <- product * x
+}
+# print result
+print(product)
+```
+-------------------------------------------------------------------------------------------------------------------------
+Function that converts feed to meters 
 
+```{r}
+feet_to_meters <- function(feet) {
+  meters <- feet * 0.3048
+  return(meters)
+}
+feet_to_meters(30)
+```
+-------------------------------------------------------------------------------------------------------------------------
+---
+There is an R function tolower() that takes in a string value and converts all the characters to lowercase. For example, tolower("OMG") would return "omg". In the workspace, we have a vector names that has names all in uppercase. Use an appropriate apply() function to create a list names_lower where all the names in names are now lowercase. Call names_lower so you can see it outputted.
+```{r}
+names <- c("ALEX","IAN","NATALIA", "CAROLYN")
 
-
-
-
-
-
-
-
-
+# your code below
+names_lower <- lapply(names, tolower)
+names_lower
+```
+-------------------------------------------------------------------------------------------------------------------------
 
 
 
