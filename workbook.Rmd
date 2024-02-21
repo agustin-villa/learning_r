@@ -248,8 +248,88 @@ names_lower
 ```
 -------------------------------------------------------------------------------------------------------------------------
 
+---
+1)Your friends names are Megan, Janet, and Tina. Create a vector named friends with their names as strings.
+2)You want to help your friends upload some personal information. The race accepts jersey, and color associated with a name. Add on to the existing info_list with the following information so that selecting the person’s name from the list returns their jersey and color information:
+Name 	Jersey # 	Color
+Megan 	1363 	green
+Janet 	6729 	green
+Tina 	7501 	orange
+3)See the existing function print_information. It takes a string like "Megan" and prints out their information in a sentence. Call it to print Megan, Janet, and Tina’s information.
+4)Bonus: instead of writing out print_information() three times, use a loop to iterate through friends to print information on each friend.
+5)race_results contains the name of the race participants in the order that they finished. We want to write a function called find_place() that takes a runner’s name and returns the position that they finished the race in. For example, find_place("Francesca") should return 2.
 
+In this step, start by declaring the function find_place and a parameter runner.
+6)Inside the function, start a for loop that iterates through the indices of race_results. Name your loop variable place. Note that the indices go from 1 to the length of race_results, and the variable place will increment by 1 every iteration of the loop
+7)In the loop body, write an if statement that checks whether the race_results at the index place is equal to the parameter runner. If so, the function should return place. This stops the loop (since we no longer need to keep looking)
+8)The code after the loop will only run if the loop completes without the runner‘s name being equal to anything in race_results. In this case, we should just return 0.
+For the last line of the function, return 0.
+9)Call the find_place function on “Francesca” or any other runner’s name in the vector at the top of the code. This is to check correctness! Verify that if find_place is given the argument "Francesca", the result returned is 2
+10)What happens if you call the function with a name that doesn’t exist in race_results? If none of the names match the name given to the function, the code would execute that line return 0.
 
+Edit the function so that the function returns the position after last place for an unknown name instead.
+11)Apply the find_place function on the friends vector using lapply().
+12)Now apply the same function on the friends vector using sapply(). Doesn’t that look much better?
+
+Congratulations on completing this project!
+
+```{r}
+# create friends vector here:
+friends <- c('Megan', 'Janet','Tina')
+
+# add on to the list here:
+info_list <- list(
+  Esther = list(
+    jersey = 3432,
+    color = "purple"
+  ),
+  Feng = list(
+    jersey = 4221,
+    color = "blue"
+  ),
+  Megan = list(
+    jersey = 1363,
+    color = "green"
+  ),
+  Janet = list(
+    jersey = 6729,
+    color = "green"
+  ),
+  Tina = list(
+    jersey = 7501,
+    color = "orange"
+  )
+)
+
+print_information <- function(name) {
+  print(paste(name, "is #", info_list[[name]]$jersey, "wearing the color", info_list[[name]]$color))
+}
+# call the print_information function on the friends vector:
+for (friend in friends) {
+print_information(friend)
+}
+
+race_results <- c("Gi", "Francesca", "Lea", "Vivian", "Jessica", "Esther", "Mary", "Yasmina", "Megan", "Janet", "Tiffany", "Kishan", "Feng", "Z", "Tina")
+
+# write find_place() here:
+find_place <- function(runner){
+  place <- 1
+  for (run in race_results){
+    if(run == runner){
+      return(place)
+    }else{
+      place <- place + 1
+    }
+  }
+return (place)
+}
+
+# call and apply find_place() here:
+find_place("Agustin")
+lapply(friends,find_place)
+sapply(friends,find_place)
+```
+-------------------------------------------------------------------------------------------------------------------------
 
 
 
