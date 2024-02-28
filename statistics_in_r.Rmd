@@ -16,7 +16,6 @@ mean_value <- total / 4
 print(mean_value)
 ```
 
-
 Finding mean without manually calculating
 mean() will do the calculation for you
 ```{r}
@@ -27,7 +26,25 @@ example_average <- mean(example_data)
 print(example_average)
 ```
 
+Finds the median of a data set: The middle of the dataset if there are 5 values
+the median would be the value at index 3
 ```{r}
+example_data2 = c(24, 16, 30, 10, 12, 28, 38, 2, 4, 36, 42)
 
+example_median = median(example_data2)
+
+print(example_median)
+```
+
+Finds the mode of the dataset: The value that appears the most in
+the data set DescTools most be imported
+
+If there are two modes a vector will be returned 
+```{r}
+library(DescTools)
+
+example_data3 <- c(24, 16, 12, 10, 12, 28, 38, 12, 28, 24)
+
+example_mode <- Mode(example_data3)
 ```
 
